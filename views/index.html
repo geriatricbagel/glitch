@@ -1,0 +1,64 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Timestamp MicroService</title>
+    <meta name="description" content="A cool thing made with Glitch" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://glitch.com/edit/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Public+Sans&display=swap" rel="stylesheet">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/client.js" defer></script>
+  </head>
+  <body>
+    <h1>
+      Api Project: Timestamp Microservice
+    </h1>
+    <h3>
+      User Stories (WIP)
+    </h3>
+    <ol>
+      <li>The API endpoint is GET <span class="markup">[project_url]/api/timestamp/:date_string?</span></li>
+      <li>A date string is valid if can be successfully parsed by <span class="markup">new Date(date_string)</span>.
+Note that the unix timestamp needs to be an <strong>integer</strong> (not a string) specifying <strong>milliseconds</strong>.
+In our test we will use date strings compliant with ISO-8601 (e.g. "2016-11-20") because this will ensure an UTC timestamp.</li>  
+      <li>If the date string is <strong>empty</strong> it should be equivalent to trigger <span class="markup">new Date()</span>, i.e. the service uses the current timestamp.</li>
+      <li>If the date string is <strong>valid</strong> the api returns a JSON having the structure<span class="markup">{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt;}
+e.g. {"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}</span></li>
+      <li>If the date string is <strong>invalid</strong> the api returns a JSON having the structure<span class="markup">{"error" : "Invalid Date" }</span></li>
+    </ol>
+    <h3>
+      Example Usage:
+    </h3>
+    <p>
+      <a href="./api/timestamp/2013-11-03" target="_blank">
+      [project url]/api/timestamp/2013-11-03</a>
+    </p>
+    <p>
+      <a href="./api/timestamp/138343680" target="_blank">
+      [project url]/api/timestamp/138343680</a>
+    </p>
+    <p>
+      <a href="./api/timestamp/" target="_blank">
+      [project url]/api/timestamp/</a>
+    </p>
+  </body>
+</html>
